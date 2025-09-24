@@ -1,9 +1,9 @@
 const express = require('express');
+const path = require('path'); // MUST be declared BEFORE using it
 const bodyParser = require('body-parser');
 const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
 
