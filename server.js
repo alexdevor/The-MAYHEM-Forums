@@ -696,3 +696,9 @@ app.get('/api/communities/:id/threads', (req, res) => {
 app.listen(PORT, () => {
   console.log(`The MAYHEM Forum running on http://localhost:${PORT}`);
 });
+
+const path = require('path');
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html')); // change to your file name
+});
