@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
 const path = require('path');
+const multer = require('multer');
 const fs = require('fs');
 
 const app = express();
@@ -693,12 +693,12 @@ app.get('/api/communities/:id/threads', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`The MAYHEM Forum running on http://localhost:${PORT}`);
+// Serve the main page
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-const path = require('path');
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html')); // change to your file name
+// Start server
+app.listen(PORT, () => {
+  console.log(`The MAYHEM Forum running on http://localhost:${PORT}`);
 });
