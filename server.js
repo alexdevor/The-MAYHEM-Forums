@@ -592,19 +592,9 @@ app.get('/api/communities', (req, res) => {
         END as is_general
       FROM communities c
       LEFT JOIN users u ON c.creator_id = u.id
-      LEFT JOIN (
-        SELECT community_id, COUNT(*) as member_count 
-        FROM community_members 
-        GROUP BY community_id
-      ) cm ON cm.community_id = c.id
-      LEFT JOIN (
-        SELECT community_id, COUNT(*) as thread_count 
-        FROM threads 
-        GROUP BY community_id
-      ) t ON t.community_id = c.id
-      ORDER BY 
-        is_general DESC,
-        c.created_at DESC
+      LEFT JOIN (SELECT community_id, COUNT(*) as member_count FROM community_members GROUP BY community_id) cm ON cm.community_id = c.id
+      LEFT JOIN (SELECT community_id, COUNT(*) as thread_count FROM threads GROUP BY community_id) t ON t.community_id = c.id
+      ORDER BY is_general DESC, c.created_at DESC
     `, [], (err, communities) => {
       if (err) {
         console.error('Error fetching communities:', err);
@@ -620,6 +610,15 @@ app.get('/api/communities', (req, res) => {
       res.json(communities);
     });
   });
+});
+
+// Fallback route: serve index.html for all unknown GET requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`The MAYHEM Forum running on http://localhost:${PORT}`);
 });
 
 app.get('/api/communities/:id', (req, res) => {
