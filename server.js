@@ -693,6 +693,3 @@ app.get('/api/communities/:id/threads', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`The MAYHEM Forum running on http://localhost:${PORT}`);
-});
