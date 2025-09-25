@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The MAYHEM Forum</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/communities.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%237856ff' d='M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6z'/%3E%3C/svg%3E">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">
+                <span style="color: var(--primary-color)">MAY</span><span style="color: var(--secondary-color)">HEM</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="#" id="communities-link" class="nav-link">Communities</a>
+                <a href="#" id="create-community-link" class="nav-link" style="display:none;">Create Community</a>
+                <a href="#" id="login-link" class="nav-link">Login</a>
+                <a href="#" id="signup-link" class="nav-link">Sign Up</a>
+                <a href="#" id="profile-link" class="nav-link" style="display:none;">Profile</a>
+                <a href="#" id="admin-link" class="nav-link" style="display:none;">Admin</a>
+                <a href="#" id="logout-link" class="nav-link" style="display:none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <main id="main-content" class="main-content">
+            <!-- Threads and replies will be loaded here -->
+        </main>
+    </div>
+
+    <div id="alert-container"></div>
+    
+    <button id="mode-switch" aria-label="Toggle dark mode">
+        🌙
+    </button>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 The MAYHEM Forum. All rights reserved.</p>
+                <p>A place for organized chaos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
