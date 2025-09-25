@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files with error logging
-app.use(express.static('public', {
+app.use(express.static(path.join(__dirname, 'public'), {
     setHeaders: (res, path, stat) => {
         res.set('Cache-Control', 'no-cache');
     }
